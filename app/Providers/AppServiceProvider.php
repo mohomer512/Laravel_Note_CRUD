@@ -20,5 +20,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        if (env('DB_CONNECTION') === 'sqlite' && env('DB_DATABASE') === '/tmp/database.sqlite') {
+            if (!file_exists('/tmp/database.sqlite')) {
+                file_put_contents('/tmp/database.sqlite', '');
+            }
+        }
+
+
     }
 }

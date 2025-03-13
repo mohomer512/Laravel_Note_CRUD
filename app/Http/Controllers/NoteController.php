@@ -106,7 +106,7 @@ class NoteController extends Controller
 
         
         if ($note->user_id !== request()->user()->id) {
-            abort(403);
+            abort(code: 403);
             }
 
         $note->delete();
